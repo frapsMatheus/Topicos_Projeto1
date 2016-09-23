@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wrd-TZ-MRs">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Food Selection-->
+        <scene sceneID="Ujb-Fx-b92">
+            <objects>
+                <tableViewController id="wrd-TZ-MRs" customClass="FoodSelection" customModule="Topicos1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1Ye-7d-hM9" customClass="Fo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="comidaCell" id="JMk-ZA-Iu6" customClass="FoodPreferenceCell" customModule="Topicos1" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JMk-ZA-Iu6" id="dh4-Tz-I7Y">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label idahiu dahiu dahiu dahihiuadhiu sdh idhiu adi hi uadhi udahiu adi huda" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-lU-N3c">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGw-iI-A2f">
+                                            <connections>
+                                                <action selector="switchChanged:" destination="JMk-ZA-Iu6" eventType="valueChanged" id="F6h-l1-3AX"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tPd-lU-N3c" firstAttribute="leading" secondItem="dh4-Tz-I7Y" secondAttribute="leadingMargin" constant="8" id="3oz-e0-MS5"/>
+                                        <constraint firstItem="tPd-lU-N3c" firstAttribute="top" secondItem="dh4-Tz-I7Y" secondAttribute="topMargin" id="7cM-0S-ubQ"/>
+                                        <constraint firstItem="gGw-iI-A2f" firstAttribute="centerY" secondItem="dh4-Tz-I7Y" secondAttribute="centerY" id="Juc-C9-Pmk"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gGw-iI-A2f" secondAttribute="trailing" constant="8" id="Xsj-zk-vf2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tPd-lU-N3c" secondAttribute="bottom" id="bO0-AN-W6R"/>
+                                        <constraint firstItem="gGw-iI-A2f" firstAttribute="leading" secondItem="tPd-lU-N3c" secondAttribute="trailing" constant="8" id="kbi-W2-JRr"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="tPd-lU-N3c" id="vQq-WW-Gvl"/>
+                                    <outlet property="switch" destination="gGw-iI-A2f" id="lfg-WY-oWv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wrd-TZ-MRs" id="L30-aG-KEk"/>
+                            <outlet property="delegate" destination="wrd-TZ-MRs" id="lrc-EB-YGF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VT0-cB-myo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20" y="154"/>
+        </scene>
+    </scenes>
+</document>
