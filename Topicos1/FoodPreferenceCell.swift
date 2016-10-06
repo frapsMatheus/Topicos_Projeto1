@@ -27,9 +27,19 @@ class FoodPreferenceCell: UITableViewCell {
     func setCell(comida:Comida) {
         label.text = comida.nome
         `switch`.isOn = comida.preferido
+        if (`switch`.isOn) {
+            label.textColor = appColor
+        } else {
+            label.textColor = UIColor.darkGray
+        }
     }
 
     @IBAction func switchChanged(_ sender: AnyObject) {
+        if (`switch`.isOn) {
+            label.textColor = appColor
+        } else {
+            label.textColor = UIColor.darkGray
+        }
         Entidades.sharedInstance.updatePreferido(comidaNome: label.text!,state: `switch`.isOn)
     }
 

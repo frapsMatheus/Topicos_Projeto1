@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'Topicos1' do
 	pod 'RealmSwift'
+    pod 'HCSStarRatingView', '~> 1.4.5'
 end
 
 post_install do |installer|

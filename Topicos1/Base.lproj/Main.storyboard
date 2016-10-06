@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Cardápio-->
         <scene sceneID="Suk-tH-a2s">
             <objects>
                 <navigationController id="x4F-gg-bzP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="i77-wI-6Ts"/>
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="cutlery" id="i77-wI-6Ts"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZOB-vP-73W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,12 +41,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWl-Zj-vcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="-631"/>
+            <point key="canvasLocation" x="847" y="-826"/>
         </scene>
-        <!--Menu-->
+        <!--Cardapio-->
         <scene sceneID="XLH-5Z-uCY">
             <objects>
-                <viewControllerPlaceholder storyboardName="Menu" id="oiY-Ru-DTW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Cardapio" id="oiY-Ru-DTW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Menu" image="first" id="r8a-Nm-g4D"/>
                     <navigationItem key="navigationItem" id="Djj-k3-kZ1"/>
                 </viewControllerPlaceholder>
@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="1605" y="-658"/>
         </scene>
-        <!--Info-->
+        <!--Informacoes-->
         <scene sceneID="z9m-qV-9nO">
             <objects>
-                <viewControllerPlaceholder storyboardName="Info" id="PRQ-HT-Wh7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Informacoes" id="PRQ-HT-Wh7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Info" image="first" id="zbO-XG-HlX"/>
                     <navigationItem key="navigationItem" id="l6M-03-p8Q"/>
                 </viewControllerPlaceholder>
@@ -80,7 +80,7 @@
         <scene sceneID="L7E-8g-Eia">
             <objects>
                 <navigationController id="wgS-qj-duo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="k7y-dr-TFc"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="info" id="k7y-dr-TFc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zwn-hd-9hS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -91,13 +91,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O2-gv-aKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="33"/>
+            <point key="canvasLocation" x="977" y="153"/>
         </scene>
         <!--Item-->
         <scene sceneID="cQ7-tw-pbE">
             <objects>
                 <navigationController id="YUQ-VR-rMM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="otl-h1-8S5"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="settings" id="otl-h1-8S5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w5i-Sq-qjj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -108,10 +108,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Kk-Ek-ayn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="672"/>
+            <point key="canvasLocation" x="-100" y="888"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cutlery" width="32" height="32"/>
         <image name="first" width="30" height="30"/>
+        <image name="info" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
     </resources>
+    <color key="tintColor" red="0.90588235289999997" green="0.28235294119999998" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

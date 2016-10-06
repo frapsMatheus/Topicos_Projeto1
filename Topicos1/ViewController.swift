@@ -19,24 +19,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBOutlet weak var variavelVisual: UILabel!
-    
-    let week = ["23/09 SEXTA-FEIRA", "24/09 - SÁBADO", "25/09 - DOMINGO"]
-    
+
+    var currentDate:Date! = nil
+
     let one = ["Caçarola marinada (paleta)", "Cuzcuz vegetariano", "Arroz branco, integral, verde", "Molho de salsa"]
     let second = ["Cuzcuz verde", "Salada de Fruta", "Pao de Queijo"]
-    let third = []
+    let third:NSArray = []
     
-    var currentArray = []
+    var currentArray:NSArray = []
+
+    var dayFormatter  = DateFormatter()
+
+    var cardapioAtual:Cardapio! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dayFormatter.dateFormat = "dd/MM EEE"
+
+        currentDate = dateFormatter.date(from: "2016-09-26")
         
-        weekday.text = week.first
+        weekday.text = dayFormatter.string(from: currentDate)
         ratingStars.value = 2
-        currentArray = one
-        
+        currentArray = one as NSArray
+
+        updateData()
+
+        Entidades.sharedInstance.subscribe(observer: self)
+
+
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "title")
         imageView.image = image
         navigationItem.titleView = imageView
@@ -46,60 +61,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func ratingChanged(_ sender: AnyObject) {
+        try! Entidades.sharedInstance.realm.write {
+            cardapioAtual.nota = Int(ratingStars.value)
+        }
+    }
+
+    func updateData() {
+        let index = segmentedControl.selectedSegmentIndex
+        let predicate = NSPredicate(format: "dia == %@ AND refeicao == %@",currentDate as NSObject, index  as NSObject)
+        let cardapios = Entidades.sharedInstance.realm.objects(Cardapio.self).filter(predicate)
+        if (cardapios.isEmpty) {
+            cardapioAtual = Cardapio()
+        } else {
+            cardapioAtual = cardapios.first!
+        }
+        ratingStars.value = CGFloat(cardapioAtual.nota)
+        self.tableView.reloadData()
+    }
     
     @IBAction func segmentedControl(sender: AnyObject) {
-        switch (segmentedControl.selectedSegmentIndex)
-        {
-        case 0:
-            currentArray = one
-            self.tableView.reloadData()
-            break;
-        case 1:
-            currentArray = second
-            self.tableView.reloadData()
-            break;
-        default:
-            currentArray = []
-            self.tableView.reloadData()
-            break; 
-        }
+        updateData()
     }
     
     @IBAction func previousDay(sender: AnyObject) {
         
-        var currentPosition = 0
-        
-        for (index, weekday) in self.week.enumerate() {
-            if self.weekday.text == weekday {
-                currentPosition = index
-                
-                if currentPosition > 0 {
-                    self.weekday.text = week[--currentPosition]
-                    ratingStars.value = CGFloat(currentPosition)
-                    break
-                }
-            }
-        }
-
+        currentDate = NSCalendar.current.date(byAdding: .day, value: -1, to: currentDate)
+        self.weekday.text = dayFormatter.string(from: currentDate)
+        updateData()
     }
     
 
     @IBAction func nextDay(sender: AnyObject) {
-        
-        var currentPosition = 0
-        
-        for (index, weekday) in self.week.enumerate() {
-            if self.weekday.text == weekday {
-                currentPosition = index
-                
-                if currentPosition < week.count-1 {
-                    self.weekday.text = week[++currentPosition]
-                    ratingStars.value = CGFloat(++currentPosition)
-                    break
-                }
-            }
-        }
-        
+
+        currentDate = NSCalendar.current.date(byAdding: .day, value: 1, to: currentDate)
+        self.weekday.text = dayFormatter.string(from: currentDate)
+        updateData()
+
     }
     
     //MARK: - TableView DataSource
@@ -107,26 +105,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentArray.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cardapioAtual.comidas.count
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        
-        cell.textLabel?.text = currentArray[indexPath.row] as? String
-        cell.detailTextLabel?.text = "180kcal"
-        
-        if indexPath.row % 2 == 0 {
-            cell.imageView?.image = UIImage(named: "folha")
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        let image = cell.viewWithTag(1) as! UIImageView
+        let heart = cell.viewWithTag(2) as! UIImageView
+        let name = cell.viewWithTag(3) as! UILabel
+        let kcal = cell.viewWithTag(4) as! UILabel
+
+        name.text = cardapioAtual.comidas[indexPath.row].nome
+        kcal.text = String(cardapioAtual.comidas[indexPath.row].calorias) + "Kcal"
+
+        if (cardapioAtual.comidas[indexPath.row].preferido) {
+            heart.image = #imageLiteral(resourceName: "Hearts Filled-100")
         } else {
-            cell.imageView?.image = UIImage(named: "frango")
+            heart.image = #imageLiteral(resourceName: "Hearts-100")
         }
-        
-        
-        
+
+        if indexPath.row % 2 == 0 {
+            image.image = UIImage(named: "folha")
+        } else {
+            image.image = UIImage(named: "frango")
+        }
+
         return cell
     }
 
+}
+
+extension ViewController:EntidadesProtocol {
+    func updated() {
+        updateData()
+    }
 }
 

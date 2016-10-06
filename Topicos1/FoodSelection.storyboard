@@ -11,13 +11,14 @@
         <scene sceneID="Ujb-Fx-b92">
             <objects>
                 <tableViewController id="wrd-TZ-MRs" customClass="FoodSelection" customModule="Topicos1" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1Ye-7d-hM9" customClass="Fo">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1Ye-7d-hM9" customClass="Fo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="comidaCell" id="JMk-ZA-Iu6" customClass="FoodPreferenceCell" customModule="Topicos1" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JMk-ZA-Iu6" id="dh4-Tz-I7Y">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -29,13 +30,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGw-iI-A2f">
+                                            <color key="onTintColor" red="0.90588235294117647" green="0.28235294117647058" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="switchChanged:" destination="JMk-ZA-Iu6" eventType="valueChanged" id="F6h-l1-3AX"/>
                                             </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tPd-lU-N3c" firstAttribute="leading" secondItem="dh4-Tz-I7Y" secondAttribute="leadingMargin" constant="8" id="3oz-e0-MS5"/>
+                                        <constraint firstItem="tPd-lU-N3c" firstAttribute="leading" secondItem="dh4-Tz-I7Y" secondAttribute="leadingMargin" constant="24" id="3oz-e0-MS5"/>
                                         <constraint firstItem="tPd-lU-N3c" firstAttribute="top" secondItem="dh4-Tz-I7Y" secondAttribute="topMargin" id="7cM-0S-ubQ"/>
                                         <constraint firstItem="gGw-iI-A2f" firstAttribute="centerY" secondItem="dh4-Tz-I7Y" secondAttribute="centerY" id="Juc-C9-Pmk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gGw-iI-A2f" secondAttribute="trailing" constant="8" id="Xsj-zk-vf2"/>
@@ -60,4 +62,5 @@
             <point key="canvasLocation" x="-20" y="154"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.90588235289999997" green="0.28235294119999998" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

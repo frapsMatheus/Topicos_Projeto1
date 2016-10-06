@@ -1,7 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="24B-4x-P0P">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--INFORMAÇÕES-->
+        <scene sceneID="5dM-4F-NNm">
+            <objects>
+                <viewController id="24B-4x-P0P" customClass="InformationViewController" customModule="Topicos1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vhm-ZF-bdx"/>
+                        <viewControllerLayoutGuide type="bottom" id="MYB-tr-kaQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jB0-To-php">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLÍTICA DE USO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nts-ya-fnU">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svc-gq-1Ev">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="7M1-bx-prD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="direita"/>
+                                <connections>
+                                    <action selector="leftButtonWithSender:" destination="24B-4x-P0P" eventType="touchUpInside" id="Igf-eT-WK6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-jW-3Ma">
+                                <state key="normal" image="esquerda"/>
+                                <connections>
+                                    <action selector="rightButtonWithSender:" destination="24B-4x-P0P" eventType="touchUpInside" id="71S-26-YhN"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzK-ib-mme">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">1. Não fure a fila. 2. Não guarde lugar. 3. Não converse enquanto se serve. 4. Não é permitido deixar o refeitório portando canecas, talheres, pratos ou alimentos. 5. Devolva na área "retorno de pratos" os utensílios usados. 6. O usuário poderá acessar o refeitório apenas uma vez para cada refeitação. 7. Sirva-se apenas daqui que for consumir</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="svc-gq-1Ev" firstAttribute="trailing" secondItem="jB0-To-php" secondAttribute="trailingMargin" id="2GL-ut-ic4"/>
+                            <constraint firstItem="svc-gq-1Ev" firstAttribute="top" secondItem="Vhm-ZF-bdx" secondAttribute="bottom" constant="8" id="4XD-vI-isX"/>
+                            <constraint firstItem="hRi-jW-3Ma" firstAttribute="leading" secondItem="jB0-To-php" secondAttribute="leading" constant="20" id="XCd-eh-0tU"/>
+                            <constraint firstItem="hRi-jW-3Ma" firstAttribute="top" secondItem="Vhm-ZF-bdx" secondAttribute="bottom" constant="8" id="byJ-qT-KPa"/>
+                            <constraint firstItem="nts-ya-fnU" firstAttribute="top" secondItem="Vhm-ZF-bdx" secondAttribute="bottom" constant="12" id="f8A-xD-3uj"/>
+                            <constraint firstItem="hzK-ib-mme" firstAttribute="top" secondItem="nts-ya-fnU" secondAttribute="bottom" constant="20" id="hXT-mW-JsB"/>
+                            <constraint firstItem="hzK-ib-mme" firstAttribute="leading" secondItem="jB0-To-php" secondAttribute="leading" constant="16" id="kJX-Yx-J4T"/>
+                            <constraint firstItem="MYB-tr-kaQ" firstAttribute="top" secondItem="hzK-ib-mme" secondAttribute="bottom" constant="16" id="mO8-Me-KHc"/>
+                            <constraint firstItem="nts-ya-fnU" firstAttribute="centerX" secondItem="jB0-To-php" secondAttribute="centerX" id="nCJ-YA-jlq"/>
+                            <constraint firstAttribute="trailing" secondItem="hzK-ib-mme" secondAttribute="trailing" constant="16" id="rB8-5K-HL1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="INFORMAÇÕES" id="ZpK-dM-hpm"/>
+                    <connections>
+                        <outlet property="contentTextView" destination="hzK-ib-mme" id="lB1-dA-rlr"/>
+                        <outlet property="titleLabel" destination="nts-ya-fnU" id="eaM-A4-1Ei"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lP-Ne-7LO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1861" y="776"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="direita" width="24" height="35"/>
+        <image name="esquerda" width="23" height="29"/>
+    </resources>
+    <color key="tintColor" red="0.90588235289999997" green="0.28235294119999998" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
