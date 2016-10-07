@@ -51,17 +51,33 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zp1-HS-Zth">
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.28235294119999998" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="iZ7-aK-8sW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="Sair">
+                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sair:" destination="24B-4x-P0P" eventType="touchUpInside" id="enf-xp-GiF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MYB-tr-kaQ" firstAttribute="top" secondItem="zp1-HS-Zth" secondAttribute="bottom" id="1SN-nE-sMJ"/>
                             <constraint firstItem="svc-gq-1Ev" firstAttribute="trailing" secondItem="jB0-To-php" secondAttribute="trailingMargin" id="2GL-ut-ic4"/>
                             <constraint firstItem="svc-gq-1Ev" firstAttribute="top" secondItem="Vhm-ZF-bdx" secondAttribute="bottom" constant="8" id="4XD-vI-isX"/>
                             <constraint firstItem="hRi-jW-3Ma" firstAttribute="leading" secondItem="jB0-To-php" secondAttribute="leading" constant="20" id="XCd-eh-0tU"/>
+                            <constraint firstItem="zp1-HS-Zth" firstAttribute="top" secondItem="hzK-ib-mme" secondAttribute="bottom" constant="8" id="a8J-Yb-ShR"/>
                             <constraint firstItem="hRi-jW-3Ma" firstAttribute="top" secondItem="Vhm-ZF-bdx" secondAttribute="bottom" constant="8" id="byJ-qT-KPa"/>
+                            <constraint firstItem="zp1-HS-Zth" firstAttribute="leading" secondItem="jB0-To-php" secondAttribute="leading" id="eBx-LV-FNX"/>
                             <constraint firstItem="nts-ya-fnU" firstAttribute="top" secondItem="Vhm-ZF-bdx" secondAttribute="bottom" constant="12" id="f8A-xD-3uj"/>
+                            <constraint firstAttribute="trailing" secondItem="zp1-HS-Zth" secondAttribute="trailing" id="gHv-oK-42f"/>
                             <constraint firstItem="hzK-ib-mme" firstAttribute="top" secondItem="nts-ya-fnU" secondAttribute="bottom" constant="20" id="hXT-mW-JsB"/>
                             <constraint firstItem="hzK-ib-mme" firstAttribute="leading" secondItem="jB0-To-php" secondAttribute="leading" constant="16" id="kJX-Yx-J4T"/>
-                            <constraint firstItem="MYB-tr-kaQ" firstAttribute="top" secondItem="hzK-ib-mme" secondAttribute="bottom" constant="16" id="mO8-Me-KHc"/>
                             <constraint firstItem="nts-ya-fnU" firstAttribute="centerX" secondItem="jB0-To-php" secondAttribute="centerX" id="nCJ-YA-jlq"/>
                             <constraint firstAttribute="trailing" secondItem="hzK-ib-mme" secondAttribute="trailing" constant="16" id="rB8-5K-HL1"/>
                         </constraints>
@@ -74,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lP-Ne-7LO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1861" y="776"/>
+            <point key="canvasLocation" x="1860" y="775.86206896551732"/>
         </scene>
     </scenes>
     <resources>

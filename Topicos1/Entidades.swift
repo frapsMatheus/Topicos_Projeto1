@@ -40,19 +40,23 @@ class Cardapio:Object {
     dynamic var nota = 0
 }
 
+class User:Object {
+    dynamic var matricula = ""
+    dynamic var senha = ""
+}
 
 protocol EntidadesProtocol {
     func updated()
 }
 
 class Entidades {
-    
+
     static let sharedInstance = Entidades()
 
     let tiposString = ["Salada","Molho","Prato Principal","Guarnição","Prato Vegetariano", "Complementos", "Sobremesa",
-                 "Bebida", "Sopa", "Pão", "Bebidas Quentes", "Bebidas Quentes Vegetarianas", "Achocolatado", "Iorgute",
-                 "Iorgute Vegetariano", "Complemento", "Complemento Vegetariano", "Proteína", "Proteína Vegetariana",
-                 "Fruta","Suco"]
+                       "Bebida", "Sopa", "Pão", "Bebidas Quentes", "Bebidas Quentes Vegetarianas", "Achocolatado", "Iorgute",
+                       "Iorgute Vegetariano", "Complemento", "Complemento Vegetariano", "Proteína", "Proteína Vegetariana",
+                       "Fruta","Suco"]
 
     let comidasDictionary = [["Nome":"Leite, café, chá de camomila","Calorias":170],
                              ["Nome":"Leite de soja","Calorias":150],
@@ -113,17 +117,17 @@ class Entidades {
         ["Dia":"2016-09-25" , "Horario":"Janta", "Pratos":["Repolho e pepino","Molho de mostarda e mel","Sopa de abóbora com agrião",
                                                            "Torrada","Mamão","Limão"]],
         ["Dia":"2016-09-26" , "Horario":"Café", "Pratos":["Leite, café, chá de camomila","Leite de soja","Achocolatado sem leite",
-            "Iogurte natural integral","Iogurte de soja","Pão francês","Manteiga","Creme vegetal","Ovos mexidos","Geléia"
+                                                           "Iogurte natural integral","Iogurte de soja","Pão francês","Manteiga","Creme vegetal","Ovos mexidos","Geléia"
             ,"Laranja","Umbu"]],
         ["Dia":"2016-09-26" , "Horario":"Almoço", "Pratos":["Alface roxa e picles","Molho de salsa"
-        ,"Lasanha à bolonhesa","Seleta de legumes","Lasanha de abobrinha","Arroz branco, arroz integral e Feijão",
-         "Maçã", "Tangerina"]],
+            ,"Lasanha à bolonhesa","Seleta de legumes","Lasanha de abobrinha","Arroz branco, arroz integral e Feijão",
+             "Maçã", "Tangerina"]],
         ["Dia":"2016-09-26" , "Horario":"Janta", "Pratos":["Repolho e pepino","Molho de mostarda e mel","Sopa de abóbora com agrião",
-            "Torrada","Peixe a gomes de Sá","Bobó de soja","Mamão","Limão"]],
+                                                           "Torrada","Peixe a gomes de Sá","Bobó de soja","Mamão","Limão"]],
 
 
         ["Dia":"2016-09-27" , "Horario":"Café", "Pratos":[
-                                                           "Iogurte natural integral","Iogurte de soja","Pão francês","Manteiga","Creme vegetal","Ovos mexidos","Geléia"
+            "Iogurte natural integral","Iogurte de soja","Pão francês","Manteiga","Creme vegetal","Ovos mexidos","Geléia"
             ,"Laranja","Umbu"]],
         ["Dia":"2016-09-27" , "Horario":"Almoço", "Pratos":["Alface roxa e picles","Molho de salsa"
             ,"Lasanha à bolonhesa","Seleta de legumes","Lasanha de abobrinha","Arroz branco, arroz integral e Feijão",
@@ -149,6 +153,17 @@ class Entidades {
 
     init() {
         realm = try! Realm()
+
+        var realmUser = realm.objects(User.self)
+        if realmUser.count == 0 {
+            let novoUser = User()
+            novoUser.matricula = "110020987"
+            novoUser.senha = "123456"
+            try! realm.write {
+                realm.add(novoUser)
+            }
+        }
+
         var realmTipos = realm.objects(Tipo.self)
         if realmTipos.count == 0 {
             for tipoString in tiposString {
@@ -159,6 +174,9 @@ class Entidades {
                 }
             }
         }
+
+
+
         realmTipos = realm.objects(Tipo.self)
         tipos = Array(realmTipos)
         var realmComidas = realm.objects(Comida.self)
@@ -223,5 +241,5 @@ class Entidades {
             notifyObservers()
         }
     }
-
+    
 }

@@ -35,6 +35,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let user = UserDefaults.standard.object(forKey: "user") as? Bool
+
+        if user == nil{
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let initialViewController = storyboard.instantiateInitialViewController()
+            UIApplication.shared.keyWindow?.rootViewController = initialViewController
+            UIApplication.shared.keyWindow?.makeKeyAndVisible()
+        }
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dayFormatter.dateFormat = "dd/MM EEE"
